@@ -1,13 +1,7 @@
 import sys
-import xbmcgui
-import xbmcplugin
+import xbmc
 
-addon_handle = int(sys.argv[1])
+def getCurrentVideoUrl():
+	return 'http://media.tagesschau.de/video/2018/0127/TV-20180127-1308-3901.webml.h264.mp4'
 
-xbmcplugin.setContent(addon_handle, 'movies')
-
-url = 'http://localhost/some_video.mkv'
-li = xbmcgui.ListItem('My First Video!', iconImage='DefaultVideo.png')
-xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
-
-xbmcplugin.endOfDirectory(addon_handle)
+xbmc.Player().play(getCurrentVideoUrl())
